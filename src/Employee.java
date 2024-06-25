@@ -16,30 +16,36 @@ public class Employee
         int Worked_Days=rand.nextInt(21);
         
         final int WAGE_PER_HOUR = 20;
-        final int FULL_TIME_HOUR = 8;
-        final int PART_TIME_HOURS = 4;
         
     	int MonthlyWages=0;
     	int dailyWage=0;
+    	int Total_Worked_hoursF=Worked_Days*FullTime_worked_Hours;
+    	int Total_Worked_hoursP=Worked_Days*PartTime_worked_Hours;
+    	
+		
+    	if(Worked_Days==20 && (Total_Worked_hoursF==100 || Total_Worked_hoursF==100))
+    	{		
+    		switch(attendance)
+    		{
+    		case 0:
+    			System.out.println("Employee is Absent");
+    			
+    		case 1:
+    			System.out.println("FullTime Employee");
+    			dailyWage=WAGE_PER_HOUR*FullTime_worked_Hours;
+    			MonthlyWages=dailyWage*Worked_Days;
+    			System.out.println("Monthly Wage is:"+MonthlyWages );
+    			
+    		case 2:
+    			System.out.println("PartTime Employee");
+    			dailyWage=WAGE_PER_HOUR*PartTime_worked_Hours;
+    			MonthlyWages=dailyWage*Worked_Days;
+    			System.out.println("Mothly Wage is:"+MonthlyWages );
+    			
+    		}
+    	}
 		
 		
-		switch(attendance)
-		{
-		case 0:
-			System.out.println("Employee Absent");
-		case 1:
-			System.out.println("FullTime Employee");
-			dailyWage=WAGE_PER_HOUR*FullTime_worked_Hours;
-			MonthlyWages=dailyWage*Worked_Days;
-			System.out.println("Monthly Wage is:"+MonthlyWages );
-			
-		case 2:
-			System.out.println("PartTime Employee");
-			dailyWage=WAGE_PER_HOUR*PartTime_worked_Hours;
-			MonthlyWages=dailyWage*Worked_Days;
-			System.out.println("Mothly Wage is:"+MonthlyWages );
-			
-		}
 	}
 
 }
