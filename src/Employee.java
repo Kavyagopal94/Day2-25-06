@@ -21,7 +21,7 @@ public class Employee
     	
     	int MonthlyWages=0;
     	
-    	if(Working_Days==20 || Total_FullTime_working_Hours==100 || Total_PartTime_working_Hours==80)
+    	if(Working_Days==20 || Total_FullTime_working_Hours==100 || Total_PartTime_working_Hours==100)
     	{		
     		switch(attendance)
     		{
