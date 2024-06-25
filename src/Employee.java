@@ -19,18 +19,20 @@ public class Employee
         final int FULL_DAY_HOUR = 8;
         final int PART_TIME_HOURS = 4;
 		
-		if(attendance==1)
+		switch(attendance)
 		{
+		case 0:
+			System.out.println("Employee Absent");
+		case 1:
 			System.out.println("FullTime Employee");
 			int dailyWage=WAGE_PER_HOUR*Worked_Hours;
 			System.out.println("Daily Wage is:"+dailyWage );
 			
-		}
-		else if(attendance==2)
-		{
+		case 2:
 			System.out.println("PartTime Employee");
-			int dailyWage=WAGE_PER_HOUR*PartTime_worked_Hours;
-			System.out.println("Daily Wage is:"+dailyWage );
+			int dailyWage1=WAGE_PER_HOUR*PartTime_worked_Hours;
+			System.out.println("Daily Wage is:"+dailyWage1 );
+			
 		}
 	}
 
