@@ -11,24 +11,23 @@ public class Employee
    
         // Generate random integers in range 0 to 2 and 0 to 8 and 0 to 4
         int attendance = rand.nextInt(3);
-        int Worked_Hours=rand.nextInt(9);
-        int PartTime_worked_Hours=rand.nextInt(5);
-        
-        final int WAGE_PER_HOUR = 20;
-        final int FULL_DAY_HOUR = 8;
-        final int PART_TIME_HOURS = 4;
+		
+     final int Working_Days=20 ;
+     final int WAGE_PER_HOUR = 20;
+     final int FULL_TIME_HOUR = 8;
+     final int PART_TIME_HOUR = 4;
 		
 		if(attendance==1)
 		{
 			System.out.println("FullTime Employee");
-			int dailyWage=WAGE_PER_HOUR*Worked_Hours;
+			int dailyWage=WAGE_PER_HOUR* FULL_TIME_HOUR;
 			System.out.println("Daily Wage is:"+dailyWage );
 			
 		}
 		else if(attendance==2)
 		{
 			System.out.println("PartTime Employee");
-			int dailyWage=WAGE_PER_HOUR*PartTime_worked_Hours;
+			int dailyWage=WAGE_PER_HOUR*PART_TIME_HOUR;
 			System.out.println("Daily Wage is:"+dailyWage );
 		}
 	}
