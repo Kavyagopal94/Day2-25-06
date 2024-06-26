@@ -3,7 +3,8 @@ import java.util.Random;
 public class Employee
 {
 	public static void main(String[] args) 
-	{ final int WAGE_PER_HOUR = 20;
+	{ 
+		        final int WAGE_PER_HOUR = 20;
 		        final int MAX_HOURS_IN_MONTH = 100;
 		        final int MAX_WORKING_DAYS = 20;
 
