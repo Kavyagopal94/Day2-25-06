@@ -4,42 +4,42 @@ public class Employee
 {
 	public static void main(String[] args) 
 	{
-		// create instance of Random class
-        Random rand = new Random();
-   
-        // Generate random integers in range 0 to 2 
-        int attendance = rand.nextInt(3);
-        
-        final int Total_FullTime_working_Hours=160;
-        final int Total_PartTime_working_Hours=80;
-        final int Working_Days=20;
-        final int WAGE_PER_HOUR = 20;
-    	
-    	final int Total_Working_Hours=100;
-    	
-    	int MonthlyWages=0;
-    	
-    	if(Working_Days==20 || Total_FullTime_working_Hours==100 || Total_PartTime_working_Hours==100)
-    	{		
-    		switch(attendance)
-    		{
-    		case 0:
-    			System.out.println("Employee is Absent");
-    			
-    		case 1:
-    			System.out.println("FullTime Employee");
-    			MonthlyWages=Total_FullTime_working_Hours*WAGE_PER_HOUR;
-    			System.out.println("Monthly Wage is:"+MonthlyWages );
-    			
-    		case 2:
-    			System.out.println("PartTime Employee");
-    			MonthlyWages=Total_PartTime_working_Hours*WAGE_PER_HOUR;;
-    			System.out.println("Mothly Wage is:"+MonthlyWages );
-    			
-    		}
-    	}
-		
-		
+
+		 final int WAGE_PER_HOUR = 20;
+	        final int MAX_HOURS_IN_MONTH = 100;
+	        final int MAX_WORKING_DAYS = 20;
+
+	        int totalWorkingHours = 0;
+	        int totalWorkingDays = 0;
+	        int totalWages = 0;
+
+	        while (totalWorkingHours <= MAX_HOURS_IN_MONTH && totalWorkingDays < MAX_WORKING_DAYS) {
+	            totalWorkingDays++;
+	            int dailyHours = 0;
+
+	            // Simulate different working hours using switch case
+	            int attendance = (int) (Math.random() * 3); // Randomly choose between 0, 1, 2
+	            switch (attendance) {
+	                case 0:
+	                    dailyHours = 0; // 0 hours absent
+	                    break;
+	                case 1:
+	                    dailyHours = 4; // 4 hours for part-time
+	                    break;
+	                case 2:
+	                    dailyHours = 8; // 8 hours for full-time
+	                    break;
+	            }
+
+	            totalWorkingHours += dailyHours;
+	            totalWages += dailyHours * WAGE_PER_HOUR;
+
+	            System.out.println("Day#: " + totalWorkingDays + " Hours Worked: " + dailyHours + " Total Hours: " + totalWorkingHours);
+	        }
+
+	        System.out.println("Total Working Days: " + totalWorkingDays);
+	        System.out.println("Total Working Hours: " + totalWorkingHours);
+	        System.out.println("Total Wages: " + totalWages);		
 	}
 
 }
