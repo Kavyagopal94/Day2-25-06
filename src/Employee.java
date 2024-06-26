@@ -3,41 +3,38 @@ import java.util.Random;
 public class Employee
 {
 	public static void main(String[] args) 
-	{
-		System.out.println("Welcome to Employee Wage Computation Program");
-		
-		// create instance of Random class
-        Random rand = new Random();
-   
-        // Generate random integers in range 0 to 2 and 0 to 8 and 0 to 4 and 0 to 19
-        int attendance = rand.nextInt(3);
-       
-        final int Working_Days=20 ;
-        final int WAGE_PER_HOUR = 20;
-        final int FULL_TIME_HOUR = 8;
-        final int PART_TIME_HOUR = 4;
-        
-    	int MonthlyWages=0;
-    	int dailyWage=0;
-		
-		
-		switch(attendance)
-		{
-		case 0:
-			System.out.println("Employee Absent");
-		case 1:
-			System.out.println("FullTime Employee");
-			dailyWage=WAGE_PER_HOUR*FUll_TIME_HOUR;
-			MonthlyWages=dailyWage*Working_Days;
-			System.out.println("Monthly Wage is:"+MonthlyWages );
-			
-		case 2:
-			System.out.println("PartTime Employee");
-			dailyWage=WAGE_PER_HOUR*PART_TIME_HOUR;
-			MonthlyWages=dailyWage*Working_Days;
-			System.out.println("Mothly Wage is:"+MonthlyWages );
-			
-		}
+	{ final int WAGE_PER_HOUR = 20;
+	        final int WORKING_DAYS_IN_MONTH = 20;
+
+	        int totalWorkingHours = 0;
+	        int totalWages = 0;
+
+	        for (int day = 1; day <= WORKING_DAYS_IN_MONTH; day++) {
+	            int dailyHours = 0;
+
+	            // Simulate different working hours using switch case
+	            int attendance = (int) (Math.random() * 3); // Randomly choose between 0, 1, 2
+	            switch (attendance) {
+	                case 0:
+	                    dailyHours = 0; // 0 hours for a day off
+	                    break;
+	                case 1:
+	                    dailyHours = 4; // 4 hours for part-time
+	                    break;
+	                case 2:
+	                    dailyHours = 8; // 8 hours for full-time
+	                    break;
+	            }
+
+	            totalWorkingHours += dailyHours;
+	            totalWages += dailyHours * WAGE_PER_HOUR;
+
+	            System.out.println("Day#: " + day + " Hours Worked: " + dailyHours + " Total Hours: " + totalWorkingHours);
+	        }
+
+	        System.out.println("Total Working Days: " + WORKING_DAYS_IN_MONTH);
+	        System.out.println("Total Working Hours: " + totalWorkingHours);
+	        System.out.println("Total Wages: " + totalWages);
 	}
 
 }
