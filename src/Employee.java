@@ -1,43 +1,19 @@
 import java.util.Random;
 
-public class Employee {
-    
-    private static final int WAGE_PER_HOUR = 20;
-    private static final int MAX_HOURS_IN_MONTH = 100;
-    private static final int MAX_WORKING_DAYS = 20;
+class Employee {
+	    
+    // Method to compute employee wages
+    public static void computeEmployeeWage(String company, int wagePerHour, int maxHoursInMonth, int maxWorkingDays) {
+        int totalWorkingDays = 0;
+        int totalWorkingHours = 0;
+        int totalWages = 0;
+    	
 
-    private int totalWorkingHours;
-    private int totalWorkingDays;
-    private int totalWages;
-
-    // Constructor
-    public Employee()
-    {
-        this.totalWorkingHours = 0;
-        this.totalWorkingDays = 0;
-        this.totalWages = 0;
-    }
-    
-    public int getTotalWorkingHours() {
-        return totalWorkingHours;
-    }
-
-    public int getTotalWorkingDays() {
-        return totalWorkingDays;
-    }
-
-    public int getTotalWages() {
-        return totalWages;
-    }
-    
-    public void ComputeWages()
-    {
-    	while (totalWorkingHours <= MAX_HOURS_IN_MONTH && totalWorkingDays < MAX_WORKING_DAYS) {
+        while (totalWorkingHours <= maxHoursInMonth && totalWorkingDays < maxWorkingDays) {
             totalWorkingDays++;
             int dailyHours = 0;
 
-            // Simulate different working hours using switch case
-            int attendance = (int) (Math.random() * 3); // Randomly choose between 0, 1, 2
+            int attendance = (int) (Math.random() * 3); //0, 1, 2
             switch (attendance) {
                 case 0:
                     dailyHours = 0; // 0 hours absent
@@ -51,18 +27,26 @@ public class Employee {
             }
 
             totalWorkingHours += dailyHours;
-            totalWages += dailyHours * WAGE_PER_HOUR;
+            totalWages += dailyHours * wagePerHour;
 
             System.out.println("Day " + totalWorkingDays + ": Hours Worked " + dailyHours + " : Total Hours: " + totalWorkingHours);
+ 
         }
-    }
-    
-    public static void main(String[] args) {
-        Employee employee = new Employee();
-        employee.ComputeWages();
+
+        System.out.println();
         
-        System.out.println("Total Working Days: " + employee.getTotalWorkingDays());
-        System.out.println("Total Working Hours: " + employee.getTotalWorkingHours());
-        System.out.println("Total Wages: " + employee.getTotalWages());
+        System.out.println("Company: " + company);
+        System.out.println("Total Working Days: " + totalWorkingDays);
+        System.out.println("Total Working Hours: " + totalWorkingHours);
+        System.out.println("Total Wages: " + totalWages);
+        
+        System.out.println();
+    }
+
+    public static void main(String[] args) 
+    {   
+    	computeEmployeeWage("Company XYZ", 20, 100, 20);
+    	computeEmployeeWage("Company ABC", 25, 120, 22);
+    	computeEmployeeWage("Company 123", 15, 90, 18);
     }
 }
